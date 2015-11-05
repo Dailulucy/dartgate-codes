@@ -6,7 +6,7 @@ import "dart:async";
 main() async{
   stu1();
   stu2();
-  await stu3();
+  await stu3();//调用异步函数，加在这里编程同步了，等到他完成为止，Use await in an async function to pause execution until a Future completes
   stu4();
   stu5();
   await stu6();

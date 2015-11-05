@@ -6,7 +6,9 @@ import "dart:async";
 main() {
   stu1();
   stu2();
-  stu3();
+  //stu3();
+  stu3().then((content) => print(content));
+  //stu3_recharge().then((content) => print(content));
   stu4();
   stu5();
   stu6();
@@ -34,27 +36,27 @@ void stu10() => print("stu10 done");
 
 
 Future stu3() async{
-  int aNum = await stu3_recharge();
+  int aNum = await stu3_recharge();//  可以等同于在上面函数队列里写stu3_recharge.then((content) => print(content));
   print("stu3 done,recharge:" + aNum.toString());
 }
 
 Future stu6() async{
-  int aDouble = await stu6_recharge();
+  int aDouble = await stu6_recharge();//await表明异步 可以省去future的定义
   print("stu6 done,recharge:"+ aDouble.toString());
 }
 
 Future<int> stu3_recharge() async {
   int aNum;
-  for (int i = 0;i < 10000000;i++) {
+  for (int i = 0;i < 1000;i++) {
     aNum = i;
   }
 
   return aNum;
 }
 
-int stu6_recharge() {
+Future<int> stu6_recharge() async {
   int balance;
-  for (int i = 0;i < 10000;i++) {
+  for (int i = 0;i < 1000000;i++) {//执行的维度小 所以比3快 异步之后还是有队列 先到先执行 和维度无关/
     balance = i;
   }
   return balance;

@@ -1,0 +1,50 @@
+  stu3_recharge.then((content) => print(content));
+
+
+F:\各种软件\dart-sdk-1.11.3\dart-sdk-1.11.3\bin\dart.exe --ignore-unrecognized-flags --checked --enable-vm-service:47335 --trace_service_pause_events D:\webapp\eclass1105\dartgate-codes\bin\async-sample\async_stu.dart
+Observatory listening on http://127.0.0.1:47335
+stu1 done
+stu2 done
+Unhandled exception:
+Closure call with mismatched arguments: function 'then'
+
+NoSuchMethodError: incorrect number of arguments passed to method named 'then'
+Receiver: Closure: () => Future<int> from Function 'stu3_recharge': static.
+Tried calling: then(Closure: (dynamic) => dynamic)
+Found: then()
+#0      Object._noSuchMethod (dart:core-patch/object_patch.dart:42)
+#1      Object.noSuchMethod (dart:core-patch/object_patch.dart:45)
+#2      main (file:///D:/webapp/eclass1105/dartgate-codes/bin/async-sample/async_stu.dart:10:17)
+#3      _startIsolate.<anonymous closure> (dart:isolate-patch/isolate_patch.dart:261)
+#4      _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:148)
+
+错误原因   stu3_recharge函数后面缺了括号
+
+
+main() {
+  stu1();
+  stu2();
+ 
+  用stu3().then((content) => print(content));
+  
+  stu4();
+  stu5();
+  stu6();
+  stu7();
+  stu8();
+  stu9();
+  stu10();
+}
+
+用stu3().then((content) => print(content));
+stu3 done,recharge:999
+stu6 done,recharge:999999
+null
+
+用stu3();
+stu3 done,recharge:999
+stu6 done,recharge:999999
+
+用 stu3_recharge().then((content) => print(content));
+999
+stu6 done,recharge:999999
